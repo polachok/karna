@@ -2,6 +2,8 @@
 
 .global _start
 _start:
+        // save x0 (it holds pointer to FDT)
+        mov x19, x0
         // read system register
         mrs x1, mpidr_el1
         and x1, x1, #0xff
@@ -29,4 +31,5 @@ _start:
         str xzr, [x1], #8 // store 0, x1 += 8
         b .L_bss_zero
 .L_bss_done:
+        mov x0, x19 // this will be the first argument
         bl kernel_main        
