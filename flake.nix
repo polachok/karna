@@ -21,7 +21,7 @@
         };
 
         rustToolchain = pkgs.rust-bin.stable.latest.default.override {
-          extensions = [ "rust-src" "llvm-tools" "rustfmt" "clippy" ];
+          extensions = [ "rust-src" "llvm-tools" "rustfmt" "clippy" "rust-analyzer" ];
           targets = [ "aarch64-unknown-none" "aarch64-unknown-none-softfloat" ];
         };
 
