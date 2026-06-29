@@ -1,0 +1,15 @@
+[build]
+target = "aarch64-unknown-none"
+ 
+[target.aarch64-unknown-none]
+linker = "aarch64-none-elf-ld"
+rustflags = ["-C", "link-arg=-Tlinker.ld"]
+runner = [
+    "qemu-system-aarch64",
+    "-M", "virt,gic-version=2",
+    "-cpu", "cortex-a72",
+    "-m", "512M",
+    "-nographic",
+    "-d", "guest_errors",
+    "-kernel",
+]
