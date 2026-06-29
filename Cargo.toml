@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 arm-pl011-uart = "0.5"
+fdt = "0.1"
 
 [profile.dev]
 panic = "abort"
